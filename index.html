@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muhammed Yusuf Çan — MIS · AI-Assisted Developer</title>
+<meta name="description" content="Muhammed Yusuf Çan — Yönetim Bilişim Sistemleri öğrencisi. Finansal veri, algoritmik ticaret, VR simülasyon ve yapay zekâ üzerine çalışan geliştirici." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0A101E;          /* deep navy background */
+    --ink-2:#0E1728;        /* raised surface */
+    --line:#1E2A42;         /* hairline */
+    --text:#E8EEF9;         /* primary text */
+    --muted:#8A97B0;        /* secondary text */
+    --faint:#5B6880;        /* tertiary / captions */
+    --signal:#37D6BE;       /* teal — signals / accent */
+    --up:#F2A93B;           /* amber — single warm highlight */
+    --display:'Space Grotesk',sans-serif;
+    --body:'Inter',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--signal);color:var(--ink)}
+
+  /* subtle chart-paper grid over the whole page */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;
+    opacity:.22;
+    mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 85%);
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  .eyebrow{
+    font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;
+    color:var(--signal);text-transform:uppercase;display:inline-block;
+  }
+  .eyebrow .slash{color:var(--faint)}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(10,16,30,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:var(--mono);font-size:.9rem;font-weight:500;letter-spacing:.02em}
+  .brand b{color:var(--signal)}
+  .nav-links{display:flex;gap:26px}
+  .nav-links a{font-family:var(--mono);font-size:.8rem;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a:focus-visible{outline:2px solid var(--signal);outline-offset:4px;border-radius:2px}
+
+  /* ---------- HERO ---------- */
+  header.hero{position:relative;padding:96px 0 88px;overflow:hidden}
+  .hero-chart{
+    position:absolute;right:-40px;top:0;bottom:0;width:58%;
+    z-index:0;opacity:.5;pointer-events:none;
+    mask-image:linear-gradient(90deg,transparent,#000 45%);
+  }
+  .hero-chart svg{width:100%;height:100%}
+  .hero .wrap{max-width:var(--maxw)}
+  .hero h1{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(2.7rem,7vw,5.1rem);line-height:.98;
+    letter-spacing:-.02em;margin:18px 0 22px;
+  }
+  .hero h1 .dim{color:var(--muted)}
+  .lede{font-size:clamp(1.02rem,2vw,1.22rem);color:var(--muted);max-width:33ch}
+  .lede b{color:var(--text);font-weight:500}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .btn{
+    font-family:var(--mono);font-size:.82rem;letter-spacing:.02em;
+    padding:11px 18px;border-radius:8px;border:1px solid var(--line);
+    color:var(--text);transition:.2s;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn:hover{border-color:var(--signal);transform:translateY(-1px)}
+  .btn.primary{background:var(--signal);color:var(--ink);border-color:var(--signal);font-weight:500}
+  .btn.primary:hover{box-shadow:0 8px 26px -10px var(--signal)}
+  .btn:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+  .quickstats{display:flex;flex-wrap:wrap;gap:34px;margin-top:52px}
+  .stat .n{font-family:var(--display);font-weight:600;font-size:1.7rem;color:var(--text)}
+  .stat .n span{color:var(--signal)}
+  .stat .l{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--faint);text-transform:uppercase}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:78px 0;border-top:1px solid var(--line);position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px;flex-wrap:wrap}
+  .sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.01em}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:28px;max-width:760px}
+  .about-grid p{color:var(--muted);font-size:1.05rem}
+  .about-grid p b{color:var(--text);font-weight:500}
+
+  /* ---------- PROJECTS ---------- */
+  .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{
+    background:var(--ink-2);border:1px solid var(--line);border-radius:14px;
+    padding:26px 26px 24px;transition:.25s;position:relative;overflow:hidden;
+  }
+  .card::after{
+    content:"";position:absolute;left:0;top:0;height:100%;width:2px;
+    background:var(--signal);transform:scaleY(0);transform-origin:top;transition:transform .3s;
+  }
+  .card:hover{border-color:#2b3c5c;transform:translateY(-3px)}
+  .card:hover::after{transform:scaleY(1)}
+  .card .idx{font-family:var(--mono);font-size:.72rem;color:var(--faint);letter-spacing:.08em}
+  .card h3{font-family:var(--display);font-weight:600;font-size:1.24rem;margin:10px 0 6px;letter-spacing:-.01em}
+  .card .sub{font-family:var(--mono);font-size:.72rem;color:var(--signal);margin-bottom:14px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .tag{font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:4px 9px}
+
+  /* ---------- STACK ---------- */
+  .stack{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .stack-group{border:1px solid var(--line);border-radius:12px;padding:22px}
+  .stack-group h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:.85rem;background:var(--ink-2);border:1px solid var(--line);border-radius:7px;padding:6px 12px;color:var(--text)}
+
+  /* ---------- EDUCATION ---------- */
+  .edu{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+  .edu-item{padding-left:20px;border-left:2px solid var(--line);position:relative;margin-bottom:26px}
+  .edu-item::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--signal)}
+  .edu-item .when{font-family:var(--mono);font-size:.72rem;color:var(--faint);letter-spacing:.05em}
+  .edu-item h3{font-family:var(--display);font-weight:600;font-size:1.12rem;margin:4px 0}
+  .edu-item p{color:var(--muted);font-size:.92rem}
+  .cert-item{margin-bottom:16px}
+  .cert-item .t{font-weight:500;font-size:.98rem}
+  .cert-item .d{font-family:var(--mono);font-size:.72rem;color:var(--faint)}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:70px 0 46px;position:relative}
+  .contact-h{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,4vw,2.6rem);letter-spacing:-.01em;margin-bottom:8px}
+  .contact-h a{color:var(--signal);border-bottom:2px solid transparent;transition:border-color .2s}
+  .contact-h a:hover{border-color:var(--signal)}
+  .contact-sub{color:var(--muted);margin-bottom:30px;max-width:46ch}
+  .foot-links{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:44px}
+  .foot-links a{font-family:var(--mono);font-size:.85rem;color:var(--muted);transition:color .2s;display:inline-flex;align-items:center;gap:7px}
+  .foot-links a:hover{color:var(--signal)}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:.72rem;color:var(--faint)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:760px){
+    .nav-links{display:none}
+    .hero-chart{width:100%;opacity:.28}
+    .projects,.stack,.edu{grid-template-columns:1fr}
+    .quickstats{gap:26px}
+    section{padding:60px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .hero-path{stroke-dashoffset:0!important}
+  }
+
+  /* hero line-draw animation */
+  .hero-path{
+    stroke-dasharray:2400;stroke-dashoffset:2400;
+    animation:draw 2.6s ease-out .3s forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .pulse-dot{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">MYÇ<b>.</b></div>
+    <div class="nav-links">
+      <a href="#hakkinda">hakkında</a>
+      <a href="#projeler">projeler</a>
+      <a href="#stack">stack</a>
+      <a href="#egitim">eğitim</a>
+      <a href="#iletisim">iletişim</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-chart" aria-hidden="true">
+    <svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid meet">
+      <polyline class="hero-path" fill="none" stroke="var(--signal)" stroke-width="2"
+        stroke-linejoin="round" stroke-linecap="round"
+        points="0,360 40,340 80,352 120,300 160,318 200,250 240,272 280,205 320,232 360,160 400,190 440,120 480,150 520,88 560,110 600,60" />
+      <circle class="pulse-dot" cx="600" cy="60" r="5" fill="var(--up)" />
+    </svg>
+  </div>
+  <div class="wrap">
+    <span class="eyebrow"><span class="slash">//</span> Yönetim Bilişim Sistemleri · Trabzon</span>
+    <h1>Muhammed Yusuf<br><span class="dim">Çan</span></h1>
+    <p class="lede">Finansal veri, otomasyon ve yapay zekâ üzerine çalışan bir geliştirici. <b>Algoritmik ticaret sistemlerinden VR simülasyonlarına</b> kadar veriyle çalışan ürünler kuruyorum.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/MuhammedYusufCann" target="_blank" rel="noopener">GitHub → MuhammedYusufCann</a>
+      <a class="btn" href="mailto:muhammedyusufcn@gmail.com">E-posta</a>
+      <a class="btn" href="https://www.linkedin.com/in/muhammed-yusuf-%C3%A7an-2452232ba/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="quickstats">
+      <div class="stat"><div class="n">3<span>.</span></div><div class="l">sınıf · YBS</div></div>
+      <div class="stat"><div class="n">04</div><div class="l">öne çıkan proje</div></div>
+      <div class="stat"><div class="n">TÜBİTAK</div><div class="l">araştırmacı bursiyer</div></div>
+      <div class="stat"><div class="n">400<span>s</span></div><div class="l">AR/VR sertifika</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="hakkinda">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="slash">//</span> 01</span>
+      <h2>Hakkında</h2>
+    </div>
+    <div class="about-grid reveal">
+      <p>Trabzon Üniversitesi <b>Yönetim Bilişim Sistemleri</b> 3. sınıf öğrencisiyim. Veri tabanı yönetimi, nesne yönelimli programlama ve API tabanlı otomasyon sistemleri üzerine pratik tecrübem var.</p>
+      <p>Geliştirme süreçlerinde üretken yapay zekâ (LLM) araçlarını ve prompt mühendisliği tekniklerini aktif kullanıyorum; <b>finansal veri işleme sistemleri, VR simülasyonları ve interaktif web arayüzleri</b> geliştiriyorum. Hedefim; veri bilimi ve fintech alanında üretim yapan bir ekibin parçası olmak.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projeler">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="slash">//</span> 02</span>
+      <h2>Projeler</h2>
+    </div>
+    <div class="projects">
+      <article class="card reveal">
+        <div class="idx">P·01</div>
+        <h3>Algoritmik Ticaret & Veri Otomasyonu</h3>
+        <div class="sub">Binance & Alpaca API</div>
+        <p>Anlık (real-time) piyasa verilerinin çekilmesi ve belirlenen matematiksel parametrelere göre alım-satım sinyallerinin kurgulanması. Sistem mimarisi tasarımı ve LLM destekli prompt mühendisliği ile hata ayıklama süreçlerinin yürütülmesi.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Binance API</span><span class="tag">Alpaca API</span><span class="tag">LLM</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="idx">P·02</div>
+        <h3>Solana Cüzdan İzleme — Copy-Trading</h3>
+        <div class="sub">On-chain Automation</div>
+        <p>Solana blokzinciri üzerindeki belirli cüzdanların hareketlerini izleyen ve risk-getiri kriterlerine göre otomatik işlem gerçekleştiren bir otomasyon yapısı. Zincir üstü (on-chain) veri takibi ve işlem mantığının kurgulanması.</p>
+        <div class="tags"><span class="tag">Solana</span><span class="tag">on-chain</span><span class="tag">JavaScript</span><span class="tag">Rust</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="idx">P·03</div>
+        <h3>TÜBİTAK VR Simülasyon Çalışmaları</h3>
+        <div class="sub">Araştırmacı Bursiyer</div>
+        <p>Özel kriz/afet yönetimi senaryoları üzerine sanal gerçeklik tabanlı interaktif eğitim simülasyonları. Unity 6 ve C# kullanılarak 3B sahne etkileşimleri ve kullanıcı deneyimi (UX) mekaniklerinin programlanması.</p>
+        <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">XR Toolkit</span><span class="tag">UX</span></div>
+      </article>
+      <article class="card reveal">
+        <div class="idx">P·04</div>
+        <h3>CAN MAKİNA İnteraktif Web Arayüzü</h3>
+        <div class="sub">Pannellum Entegrasyonu</div>
+        <p>Pannellum kütüphanesi kullanılarak tarım makinelerinin web üzerinden 360° panoramik olarak incelenebildiği bir görsel mağaza altyapısının geliştirilmesi.</p>
+        <div class="tags"><span class="tag">Pannellum</span><span class="tag">Web</span><span class="tag">360°</span><span class="tag">JavaScript</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="slash">//</span> 03</span>
+      <h2>Tech Stack</h2>
+    </div>
+    <div class="stack">
+      <div class="stack-group reveal">
+        <h4>Diller</h4>
+        <div class="chips"><span class="chip">C#</span><span class="chip">C</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">HTML / CSS</span></div>
+      </div>
+      <div class="stack-group reveal">
+        <h4>Veri</h4>
+        <div class="chips"><span class="chip">MSSQL</span><span class="chip">İlişkisel Tasarım</span><span class="chip">Veri Madenciliği</span><span class="chip">Büyük Veri Analitiği</span></div>
+      </div>
+      <div class="stack-group reveal">
+        <h4>Araçlar</h4>
+        <div class="chips"><span class="chip">Unity 6</span><span class="chip">Git</span><span class="chip">API Entegrasyonu</span></div>
+      </div>
+      <div class="stack-group reveal">
+        <h4>Yapay Zekâ</h4>
+        <div class="chips"><span class="chip">Prompt Engineering</span><span class="chip">LLM</span><span class="chip">AI-Assisted Dev</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="egitim">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="slash">//</span> 04</span>
+      <h2>Eğitim & Sertifikalar</h2>
+    </div>
+    <div class="edu">
+      <div class="reveal">
+        <div class="edu-item">
+          <div class="when">2023 — 2027 (Beklenen)</div>
+          <h3>Trabzon Üniversitesi</h3>
+          <p>Yönetim Bilişim Sistemleri (Lisans). Ders odağı: Nesne Yönelimli Programlama (C#), Algoritma (C), İleri Veri Tabanı (MSSQL), Web Programlama, Uygulamalı Veri Madenciliği, Büyük Veri Analitikleri.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="cert-item">
+          <div class="t">Artırılmış Gerçeklik (AR) & Sanal Gerçeklik (VR) Uygulamalı Eğitim Programı</div>
+          <div class="d">400 saat</div>
+        </div>
+        <div class="cert-item">
+          <div class="t">Sermaye Piyasası Kurulu (SPK) Eğitim Semineri</div>
+          <div class="d">Sertifika</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="iletisim">
+  <div class="wrap">
+    <span class="eyebrow"><span class="slash">//</span> İletişim</span>
+    <p class="contact-h" style="margin-top:14px">Bir şey mi kuruyorsun?<br><a href="mailto:muhammedyusufcn@gmail.com">Konuşalım →</a></p>
+    <p class="contact-sub">Veri, otomasyon veya yapay zekâ tarafında bir işbirliği ya da fırsat için en hızlı yol e-posta.</p>
+    <div class="foot-links">
+      <a href="mailto:muhammedyusufcn@gmail.com">✉ muhammedyusufcn@gmail.com</a>
+      <a href="https://github.com/MuhammedYusufCann" target="_blank" rel="noopener">↗ github.com/MuhammedYusufCann</a>
+      <a href="https://www.linkedin.com/in/muhammed-yusuf-%C3%A7an-2452232ba/" target="_blank" rel="noopener">↗ LinkedIn</a>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Muhammed Yusuf Çan</span>
+      <span>Trabzon · TR</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
